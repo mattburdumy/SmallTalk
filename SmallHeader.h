@@ -183,7 +183,7 @@ EXP mkVAREXP ( NAME nm) // *********** check me
     e->args = NULL;
     
     return e; 
-    //you write the code
+   
     
 }/* mkVAREXP */
 
@@ -199,7 +199,7 @@ EXP mkAPEXP (NAME op, EXPLIST el) // *********** CHECK ME
     e->optr = op;
     e->args = el; 
     return e;
-    //you write the code
+   
     
 }/* mkAPEXP */
 
@@ -213,7 +213,7 @@ EXPLIST mkExplist (EXP e, EXPLIST el)
     list->head = e;
     list->tail = el;
     return list;
-    //you write the code
+    
     
 }/* mkExplist */
 
@@ -560,7 +560,7 @@ EXPLIST parseEL()
     EXPLIST temp2 = parseEL();
     return mkExplist(temp, temp2);
     
-    //you write the code;
+    
     //this and parseEXP() are mutually recursive
     
 }// parseEL
@@ -665,7 +665,6 @@ int lengthVL(VALUELIST vl)
         length++;
     }
     
-    // Double check me...
     
     
     return length;
@@ -767,13 +766,12 @@ STVALUE  applyValueOp ( int op,  VALUELIST vl)
     switch (op)
     {
         case 6 : n = mkINT(n1->intVal + n2->intVal); break;
-        case 7 : n = mkINT(n1->intVal - n2->intVal); break;// do it
-        case 8 : n = mkINT(n1->intVal * n2->intVal); break;//do it
-        case 9 : n = mkINT(n1->intVal / n2->intVal); break;//do it
-        //case 10 : n = mkINT(n1->intVal == n2->intVal); break;//do it
-        case 11 : n = mkINT(n1->intVal < n2->intVal); break; //do it
-        case 12: n = mkINT(n1->intVal > n2->intVal); break;//do it
-        case 13: prValue(n1); cout<<endl; n = n1;break;
+        case 7 : n = mkINT(n1->intVal - n2->intVal); break;
+        case 8 : n = mkINT(n1->intVal * n2->intVal); break;
+        case 9 : n = mkINT(n1->intVal / n2->intVal); break;
+        case 11 : n = mkINT(n1->intVal < n2->intVal); break;
+        case 12: n = mkINT(n1->intVal > n2->intVal); break;
+        case 13: prValue(n1); cout<<endl; n = n1; break;
     };//switch
     return n;
 }// applyValueOp
